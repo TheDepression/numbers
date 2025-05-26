@@ -327,7 +327,11 @@ setTimeout(() => {
     timerElement.textContent = `Time: ${timer.toFixed(2)}s`;
   }, 100); // every 100ms is plenty
 }
-
+function playAudio(audioElement) {
+  // Create a new Audio instance from the same source and play it
+  const sound = new Audio(audioElement.src);
+  sound.play().catch(e => console.log('Audio play failed:', e));
+}
       function resetGame() {
         console.log('resetGame started');
         try {
