@@ -25,6 +25,7 @@
 }
 
 #grid {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Make columns flexible */
   grid-gap: 5px;
@@ -126,7 +127,7 @@
 </head>
 <body>
   <div id="game-container">
-    <div id="high-score">High Score: --</div>
+    <div id="high-score">Best: --</div>
     <div id="timer">Time: 0.00s</div>
     <div id="grid"></div>
     <div id="countdown"></div>
@@ -206,7 +207,7 @@ loadAudio(countdownSound, 'https://raw.githubusercontent.com/TheDepression/Sound
       let isInteractive = false;
       let isPaused = false;
 
-      highScoreElement.textContent = highScore === Infinity ? 'High Score: --' : `High Score: ${highScore.toFixed(2)}s`;
+      highScoreElement.textContent = highScore === Infinity ? 'Best: --' : `Best: ${highScore.toFixed(2)}s`;
 
       function initGrid() {
         console.log('initGrid started');
@@ -272,7 +273,7 @@ setTimeout(() => {
   } catch (e) {
     console.log('Failed to save high score:', e);
   }
-  highScoreElement.textContent = `High Score: ${highScore.toFixed(2)}s`;
+  highScoreElement.textContent = `Best: ${highScore.toFixed(2)}s`;
   playAgainButton.style.display = 'block';
   restartButton.style.display = 'none';
   isInteractive = false;
